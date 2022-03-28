@@ -2,8 +2,8 @@
     It also provides the date and time of the next ISS pass at the user's location"""
 
 # importing libraries
-import json
-from tkinter import TclError  # used for parsing json response
+import json  # used for parsing json response
+from tkinter import TclError
 import requests  # used for sending a request to the api server
 import turtle  # used for visualising the iss position
 from datetime import datetime  # used for parsing unix time response from the server
