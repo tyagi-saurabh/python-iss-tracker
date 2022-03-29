@@ -59,6 +59,11 @@ location.write(time.ctime(over), font=("Verdana", 25, 'bold'))
 # fetching the data from the open-notify api
 flag = True
 url = "http://api.open-notify.org/iss-now.json"
+try:
+    if screen.exitonclick() == True:  # terminates the API call loop if the user closes the map window
+        flag = False
+except TclError:
+    pass
 while flag:
     # we will use a 'get' request to the api server and capture the response object
     response = requests.get(url)
@@ -74,8 +79,3 @@ while flag:
 
     iss.goto(float(lon), float(lat))
     time.sleep(5)
-try:
-    if screen.exitonclick() == True:  # terminates the API call loop if the user closes the map window
-        flag = False
-except TclError:
-    pass
